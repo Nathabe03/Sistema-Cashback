@@ -47,7 +47,7 @@ botaoCalcular.addEventListener('click', async function() { // Adicionamos 'async
 
     // 2. ENVIO PARA O PYTHON (O que estava faltando!)
     try {
-        await fetch('http://127.0.0.1:5000/calcular', {
+        await fetch('https://sistema-cashback-ses5.onrender.com/calcular', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
