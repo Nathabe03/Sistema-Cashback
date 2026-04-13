@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css" type="text/css">
+    <title>CashBack</title>
+</head>
+<body>
 
+    <div class="login"> 
+      
+        <form id="loginForm">
+         <h2>Entrar na minha conta</h2>
+            <label for="usuario" class="label-usuario">Usuário:</label>
+             <input type="text" id="usuario" class="caixa-login" name="usuario" placeholder="Digite seu usuário ou e-mail" maxlength="50" required>
+              <label for="senha" class="label-senha">Senha:</label>
+               <input type="password" id="senha" class="caixa-senha" name="senha" placeholder="Sua senha" maxlength="25" required>
+            
+                <button type="submit" id="botao-login" class="botao-login-entrar">Entrar</button>
+
+        </form>
+    </div>
+
+   <div class="calculoCashback">
+    
+        <h2>Vamos verificar seu Cashback?</h2>
+           
+            <label for="valorCompra">Valor da Compra:</label>
+            <input type="number" id="valorCompra" class="caixa-texto" placeholder="Ex: 30.00">
+
+            <div class="vip-option" style="margin: 10px 0;">
+                <input type="checkbox" id="isVip">
+                <label for="isVip">Sou cliente VIP</label>
+            </div>
+
+            <button id="botaoCalcular" class="botao-gerar-calculo">Calcular</button>
+    <div id="resultado" class="resultado-calculo">O seu cashback aparecerá aqui!</div>
+    
+</div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
