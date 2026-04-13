@@ -11,8 +11,8 @@ def add_cors_headers(response):
     response.headers.add('Access-Control-Allow-Methods', 'POST, GET')
     return response
 
-URL_BASE = "https://khmbgkydgrncwghjbuck.supabase.co/rest/v1/historico_consultas"
-CHAVE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtobWJna3lkZ3JuY3dnaGpidWNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4NDYwNTIsImV4cCI6MjA5MTQyMjA1Mn0.GN_6mhsU5UA2IiC3Hp2oVkp8eKFSGpGGhu6hdn6Tlm4"
+URL_BASE = os.getenv("SUPABASE_URL")
+CHAVE_ANON = os.getenv("SUPABASE_KEY")
 
 @app.route('/')
 def home():
