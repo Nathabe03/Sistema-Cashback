@@ -2,10 +2,8 @@ from flask import Flask, request, jsonify, render_template
 import httpx 
 import os
 
-# Configuramos o static_folder='.' para o Flask achar o CSS e JS na pasta principal
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
-# Configuração manual para o CORS
 @app.after_request
 def add_cors_headers(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
@@ -16,7 +14,6 @@ def add_cors_headers(response):
 URL_BASE = "https://khmbgkydgrncwghjbuck.supabase.co/rest/v1/historico_consultas"
 CHAVE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtobWJna3lkZ3JuY3dnaGpidWNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4NDYwNTIsImV4cCI6MjA5MTQyMjA1Mn0.GN_6mhsU5UA2IiC3Hp2oVkp8eKFSGpGGhu6hdn6Tlm4"
 
-# NOVA ROTA: Quando você abrir o link do Render, ele vai ler esta parte
 @app.route('/')
 def home():
     return render_template('index.html')
