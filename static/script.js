@@ -3,13 +3,12 @@ const formulario = document.getElementById('loginForm');
 const divCalculo = document.querySelector('.calculoCashback'); 
 const botaoCalcular = document.getElementById('botaoCalcular');
 
-// 1. LÓGICA DE LOGIN (Para esconder a caixa branca e mostrar o cálculo)
 formulario.addEventListener('submit', function(event) {
     event.preventDefault(); 
     
     const nomeUsuario = document.getElementById('usuario').value;
 
-    if (divLogin) divLogin.style.display = 'none'; // Esconde a div login inteira
+    if (divLogin) divLogin.style.display = 'none';
     
     if (divCalculo) {
         divCalculo.style.display = 'block'; 
@@ -20,9 +19,8 @@ formulario.addEventListener('submit', function(event) {
     if (titulo) titulo.innerText = `Bem-vindo, ${nomeUsuario}!`;
 });
 
-// 2. LÓGICA DE CÁLCULO LOCAL (Sem precisar do servidor Flask agora)
-// 2. LÓGICA DE CÁLCULO E ENVIO PARA O BANCO
-botaoCalcular.addEventListener('click', async function() { // Adicionamos 'async' aqui
+
+botaoCalcular.addEventListener('click', async function() { 
     const valorDigitado = parseFloat(document.getElementById('valorCompra').value);
     const checkVip = document.getElementById('isVip');
     const eVip = (checkVip && checkVip.checked);
@@ -32,12 +30,12 @@ botaoCalcular.addEventListener('click', async function() { // Adicionamos 'async
         return;
     }
 
-    // Cálculos
+    
     let taxaBase = valorDigitado > 500 ? 0.10 : 0.05;
     let cashbackBase = valorDigitado * taxaBase;
     let cashbackTotal = eVip ? cashbackBase * 1.10 : cashbackBase;
 
-    // 1. Exibição no site (o que você já tinha)
+    
     const campoResultado = document.getElementById('resultado');
     if (campoResultado) {
         const infoTaxa = (taxaBase * 100).toFixed(0);
@@ -45,7 +43,7 @@ botaoCalcular.addEventListener('click', async function() { // Adicionamos 'async
         campoResultado.innerText = `Cashback (${infoTaxa}%${rotuloVip}): R$ ${cashbackTotal.toFixed(2)}`;
     }
 
-    // 2. ENVIO PARA O PYTHON (O que estava faltando!)
+    
     try {
         await fetch('https://sistema-cashback-ses5.onrender.com/calcular', {
             method: 'POST',
