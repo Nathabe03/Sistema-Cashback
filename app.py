@@ -3,7 +3,7 @@ import httpx
 import os
 
 # Configuramos o static_folder='.' para o Flask achar o CSS e JS na pasta principal
-app = Flask(__name__, template_folder='templates', static_folder='.')
+app = Flask(__name__, template_folder='templates', static_folder='static')
 
 # Configuração manual para o CORS
 @app.after_request
