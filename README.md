@@ -9,11 +9,11 @@ Uma API de cashback Full Stack desenvolvida com Python (Flask) e PostgreSQL (Sup
 - Interface web para inserção de dados e visualização de resultados.
 
 ## Tecnologias Utilizadas
-- Python 3
-- Flask
-- JavaScript (Fetch API)
-- PostgreSQL (Supabase)
-- HTML5 e CSS3
+- Python 3.
+- Flask.
+- JavaScript (Fetch API).
+- PostgreSQL (Supabase).
+- HTML5 e CSS3.
 
 ## Estrutura do Projeto
 - app.py: Servidor backend e integração com o banco de dados.
